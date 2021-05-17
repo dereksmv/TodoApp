@@ -24,7 +24,7 @@ export default {
         },
 
     mounted() {
-            axios.get("/api/get-todo/completed")
+            axios.get("/api/get-todo/complete")
                  .then(response => {
                      this.todos = response.data;
                      console.log(this.todos)
