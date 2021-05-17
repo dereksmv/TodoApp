@@ -5,6 +5,16 @@
                 <div class="header">{{ title }}</div>
             </div>
             <div class="content">
+                <h4 class="ui sub header">
+                Status
+                </h4>
+                <div class="ui small feed">
+                    <div class="event">
+                        <div class="summary">
+                            {{ status }}
+                        </div>
+                    </div>
+                </div>
                 <h4 class="ui sub header">Description</h4>
                 <div class="ui small feed">
                     <div class="event">
@@ -15,9 +25,9 @@
                         </div>
                     </div>
                 </div>
-                <H5 class="ui sub header">
+                <h5 class="ui sub header">
                     Created
-                </H5>
+                </h5>
                 <div class="ui small feed">
                 <div class="event">
                     <div class="content">
@@ -27,9 +37,9 @@
                     </div>
                 </div>
                 </div>
-                <H5 class="ui sub header">
+                <h5 class="ui sub header">
                     Last Modified
-                </H5>
+                </h5>
                 <div class="event">
                     {{ lastUpdated }}
                 </div>
@@ -46,7 +56,9 @@
 export default {
     name: "TodoCards",
     props: {
+       
         title: String,
+        status: String,
         description: String,
         createdOn: String,
         lastUpdated: String,

@@ -2,6 +2,7 @@
     <div class="card-grid">
         <div v-for="todo in todos" :key="todo.id">
             <TodoCards :title="todo.title"
+            :status="todo.status"
             :description="todo.desc"
             :createdOn="todo.createdOn"
             :lastUpdated="todo.lastUpdated"
