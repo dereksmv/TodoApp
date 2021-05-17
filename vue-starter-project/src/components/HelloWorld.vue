@@ -1,20 +1,33 @@
 <template>
 <div>
-  <div class="hello">
-    <div class="split-header">
-      <div>
-        <PageHeader text="Todo"/>
+  <div class="main-nav">
+    <div class="hello">
+      <div class="split-header">
         <div>
-          {{ info }}
+          <PageHeader text="Todo"/>
+          <div>
+           {{ fuck }}
+            {{ info }}
+          </div>
+        </div>
+        <div>
+          <PrimaryButton text="Add New"/>
         </div>
       </div>
-      <div>
-        <PrimaryButton text="Add New"/>
-      </div>
     </div>
+    <div>
+      <TabinatedMenu
+      :completeClasses="completeClasses"
+      :inProgressClasses="inProgressClasses"
+      :notStartedClasses="notStartedClasses"
+      />
+    </div>
+    
   </div>
   <div>
-    <TabinatedMenu/>
+    <CardContainers
+    :todos="todos"
+    />
   </div>
 </div>
 </template>
@@ -23,12 +36,17 @@
 import PageHeader from "./PageHeader.vue";
 import PrimaryButton from "./buttons/PrimaryButton.vue";
 import TabinatedMenu from "./menus/TabinatedMenu.vue";
+import CardContainers from "./CardContainers.vue";
 
 export default {
   name: 'HelloWorld',
-  components: {PageHeader, PrimaryButton, TabinatedMenu},
+  components: {PageHeader, PrimaryButton, TabinatedMenu, CardContainers},
   props: {
-    msg: String
+    fuck: String,
+    todos: [],
+    notStartedClasses: String,
+    inProgressClasses: String,
+    completeClasses: String
   },
   data() {
     return {
@@ -47,6 +65,10 @@ export default {
 .split-header {
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.main-nav {
+  background-color: white;
 }
 
 
