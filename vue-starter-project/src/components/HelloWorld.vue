@@ -6,7 +6,6 @@
         <div>
           <PageHeader text="Todo"/>
           <div>
-           {{ fuck }}
             {{ info }}
           </div>
         </div>
@@ -42,8 +41,7 @@ export default {
   name: 'HelloWorld',
   components: {PageHeader, PrimaryButton, TabinatedMenu, CardContainers},
   props: {
-    fuck: String,
-    todos: [],
+    todos: Array,
     notStartedClasses: String,
     inProgressClasses: String,
     completeClasses: String

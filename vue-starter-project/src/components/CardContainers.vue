@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .card-grid {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     margin: 25px;
 }
 </style>
