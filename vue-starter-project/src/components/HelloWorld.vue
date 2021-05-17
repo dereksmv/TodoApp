@@ -1,69 +1,53 @@
 <template>
+<div>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        {{ info }}
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div class="split-header">
+      <div>
+        <PageHeader text="Todo"/>
+        <div>
+          {{ info }}
+        </div>
+      </div>
+      <div>
+        <PrimaryButton text="Add New"/>
+      </div>
+    </div>
   </div>
+  <div>
+    <TabinatedMenu/>
+  </div>
+</div>
 </template>
 
 <script>
-import axios from "axios";
+import PageHeader from "./PageHeader.vue";
+import PrimaryButton from "./buttons/PrimaryButton.vue";
+import TabinatedMenu from "./menus/TabinatedMenu.vue";
 
 export default {
   name: 'HelloWorld',
+  components: {PageHeader, PrimaryButton, TabinatedMenu},
   props: {
     msg: String
   },
   data() {
     return {
-      info: null
+      info: "A simple to-do application built with Spring-boot, MySQL, and Vue.js \n by Derek Smith and Jeremy Pavlich"
     }
-  },
-  mounted() {
-    axios.get("/api/get-todo")
-         .then(response => {
-           this.info = response.data;
-         })
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+.hello {
+  padding: 25px;
+  width: 100%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.split-header {
+  display: grid;
+  grid-template-columns: auto auto;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+
 </style>
