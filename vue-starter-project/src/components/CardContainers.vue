@@ -21,7 +21,7 @@ export default {
         name: "CardContainers",
         components: {TodoCards},
         props: {
-            todos: []
+            todos: Array
             },
     }
 

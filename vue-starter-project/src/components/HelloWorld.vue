@@ -10,7 +10,9 @@
           </div>
         </div>
         <div>
-          <PrimaryButton text="Add New"/>
+          <PrimaryButton 
+          v-on:update="handleUpdate"
+          text="Add New"/>
         </div>
       </div>
     </div>
@@ -45,6 +47,12 @@ export default {
     notStartedClasses: String,
     inProgressClasses: String,
     completeClasses: String
+  },
+  methods: {
+    handleUpdate() {
+      console.log("Update revieved from HelloWorld");
+      this.$emit("update")
+    }
   },
   data() {
     return {

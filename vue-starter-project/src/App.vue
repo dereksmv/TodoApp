@@ -17,10 +17,11 @@ export default {
 
 <style>
   @import "../semantic/dist/semantic.rtl.css";
+  
   #app {
     background-color: #f5f5f5;
     color: black;
-    height: 100vh;
+    height: 100%;
   }
 </style>
 

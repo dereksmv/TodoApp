@@ -1,6 +1,7 @@
 <template>
 <div>
     <HelloWorld
+        @update="handleUpdate"
         :todos="todos"
         notStartedClasses="item"
         inProgressClasses="item active"
@@ -22,6 +23,14 @@ export default {
                 todos: null,
             }
         },
+    methods: {
+        handleUpdate() {
+            axios.get("/api/get-todo/in progress")
+                 .then(response => {
+                     this.todos = response.data;
+                 })
+        }
+    },
 
     mounted() {
             axios.get("/api/get-todo/in progress")
