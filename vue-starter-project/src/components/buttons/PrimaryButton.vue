@@ -51,8 +51,8 @@ export default {
               }
               axios.post("/api/create-todo", data)
                   .then(() => {
-                    return
-                  }, this.emitUpdate())
+                    this.emitUpdate()
+                  })
         }
             })
   .modal('show');
