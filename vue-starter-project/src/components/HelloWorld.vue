@@ -4,7 +4,8 @@
     <div class="hello">
       <div class="split-header">
         <div>
-          <PageHeader text="Todo"/>
+          <PageHeader text="Todo"
+          />
           <div>
             {{ info }}
           </div>

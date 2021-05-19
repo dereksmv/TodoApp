@@ -3,6 +3,9 @@
         <div class="ui card">
             <div class="content">
                 <div class="header">{{ title }}</div>
+                <DeleteTodoButton
+                :indexNumber="id"
+                />
             </div>
             <div class="content">
                 <h4 class="ui sub header">
@@ -52,11 +55,15 @@
 </template>
 
 <script>
+import DeleteTodoButton from "../buttons/DeleteTodoButton"
 
 export default {
     name: "TodoCards",
+    components: {
+        DeleteTodoButton
+    },
     props: {
-       
+        id: Number,
         title: String,
         status: String,
         description: String,
