@@ -7,11 +7,13 @@
         inProgressClasses="item active"
         completeClasses="item"
     />
+
 </div>
 </template>
 
 <script>
 import HelloWorld from "./HelloWorld";
+
 
 import axios from "axios";
 

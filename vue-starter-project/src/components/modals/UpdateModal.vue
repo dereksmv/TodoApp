@@ -8,11 +8,11 @@
     <div class="ui form" id="todoForm">
         <div class="field">
             <label for="Title">Title: </label>
-            <input type="text" id="title"/>
+            <input type="text" id="updateTitle"/>
         </div>
         <div class="field">
             <label for="Description">Description: </label>
-            <input type="text" id="desc"/>
+            <input type="text" id="updateDesc"/>
         </div>
     </div>
   <div class="actions">
@@ -33,7 +33,7 @@
 
 
 export default {
-    name: "CreateToDoModal",
+    name: "Update",
     props: {
         cancelText: String,
         confirmText: String,

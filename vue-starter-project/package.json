@@ -36,10 +36,8 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {},
-    "eslintIgnore": ["modal.js"]
+    "rules": {}
   },
-  
   "browserslist": [
     "> 1%",
     "last 2 versions",

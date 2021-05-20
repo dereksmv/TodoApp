@@ -1,30 +1,36 @@
 <template>
     <div>
         <div>
-            <i v-on:click="showModal" :id="this.indexNumber" class="red trash icon"></i>
+            <button v-on:click="showModal" :id="indexNumber" class="ui icon red button">
+                <i class="white trash icon"></i> Delete
+            </button>
         </div>
+
     </div>
 </template>
 
 <script>
 import axios from "axios";
-/*const $ = require('jquery');
-import "../../../semantic/dist/semantic.js";*/
 
 export default {
     name: "DeleteTodoButton",
+
         props: {
         indexNumber: Number,
 
         },
     methods: {
-        showModal(event) {
-            let id = event.target.id;
+        deleteTodo(id) {
+            let self = this;
             axios.delete(`/api/delete/${id}`)
                  .then(() => {
-                     this.$emit("update");
+                     self.$emit("update");
+                     console.log(this);
                  })
-
+            },
+        showModal(event) {
+            let id = event.target.id;
+            window.$('.mini.modal.delete').modal({onApprove: () => {this.deleteTodo(id)}}).modal('show');
         }
     }
 

@@ -1,11 +1,9 @@
 <template>
     <div class="todo-card">
-        <div class="ui card">
+        <div class="ui card sizer">
             <div class="content">
                 <div class="header">{{ title }}</div>
-                <DeleteTodoButton
-                :indexNumber="id"
-                />
+
             </div>
             <div class="content">
                 <h4 class="ui sub header">
@@ -46,9 +44,17 @@
                 <div class="event">
                     {{ lastUpdated }}
                 </div>
-            <div class="extra content">
-                <button class="ui button">Edit</button>
-            </div>
+                <div class="extra-grid extra content">
+                    <div>
+                        <DeleteTodoButton
+                        :indexNumber="id"
+                        @update="handleUpdate"
+                        />
+                    </div>
+                    <div>
+                        <button class="ui button">Edit</button>
+                    </div>
+                </div>
             </div>
     </div>
     </div>
@@ -69,7 +75,28 @@ export default {
         description: String,
         createdOn: String,
         lastUpdated: String,
+        },
+        methods: {
+            handleUpdate() {
+                this.$emit("update");
+            }
         }
     }
 </script>
 
+<style scoped>
+    .todo-card {
+        margin: 10px;
+        
+    }
+
+    .sizer {
+        height: 450px;
+    }
+
+    .extra-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+</style>

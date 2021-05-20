@@ -3,23 +3,17 @@
   <div class="button-primary">
     <button v-on:click="showModal" class="ui primary button">{{ text }}</button>
   </div>
-  <CreateToDoModal
-    confirmText = "Save"
-    cancelText = "Cancel"
-  />
+
 </div>
 
 </template>
 
 <script>
-import CreateToDoModal from "../modals/CreateToDoModal.vue";
-const $ = require('jquery');
-import "../../../semantic/dist/semantic.js"
+
 import axios from "axios";
 
 
 export default {
- components: {CreateToDoModal},
   name: 'PrimaryButton',
   data() {
     return {
@@ -41,7 +35,8 @@ export default {
         
       },
       showModal() {
-           $('.ui.modal').modal({ 
+        try {
+           window.$('.ui.modal.create').modal({ 
              onApprove:  () => {
               let title = document.getElementById("title").value;
               let desc = document.getElementById("desc").value;
@@ -56,7 +51,10 @@ export default {
         }
             })
   .modal('show');
-  }
+  } catch (error) {
+        alert(error);
+      }
+}
 }
 }
 </script>

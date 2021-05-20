@@ -27,8 +27,10 @@
     
   </div>
   <div>
+
     <CardContainers
     :todos="todos"
+    @update="this.$emit('update')"
     />
   </div>
 </div>
@@ -39,6 +41,7 @@ import PageHeader from "./PageHeader.vue";
 import PrimaryButton from "./buttons/PrimaryButton.vue";
 import TabinatedMenu from "./menus/TabinatedMenu.vue";
 import CardContainers from "./CardContainers.vue";
+
 
 export default {
   name: 'HelloWorld',

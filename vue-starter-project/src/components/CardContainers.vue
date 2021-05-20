@@ -7,6 +7,7 @@
             :createdOn="todo.createdOn"
             :lastUpdated="todo.lastUpdated"
             :id="todo.id"
+            @update="$emit('update')"
             />
         </div>
     </div>
