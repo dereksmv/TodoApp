@@ -21,10 +21,9 @@ export default {
         },
     methods: {
         deleteTodo(id) {
-            let self = this;
             axios.delete(`/api/delete/${id}`)
                  .then(() => {
-                     self.$emit("update");
+                     this.$emit("update");
                      console.log(this);
                  })
             },

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <button v-on:click="showModal" :id="indexNumber" class="ui icon button">
+            <button v-on:click="showModal" class="ui icon button">
                 <i class="white edit icon"></i> Edit
             </button>
         </div>
@@ -15,9 +15,12 @@ import axios from "axios";
 export default {
     name: "EditButton",
 
-        props: {
-        indexNumber: Number,
-
+        
+    props: {
+        title: String,
+        id: Number,
+        status: String,
+        desc: String
         },
     methods: {
         updateCreator() {
@@ -34,26 +37,26 @@ export default {
             
             let updateTarget = this.updateCreator();
             let data = {
-                title: updateTarget.title,
-                desc: updateTarget.desc,
-                status: updateTarget.status
+                title: updateTarget.title.value,
+                desc: updateTarget.desc.value,
+                status: updateTarget.status.value
             }
-            axios.patch(`/api/update/${id}`, updated)
+            axios.patch(`/api/update/${id}`, data)
                  .then(() => {
-                     self.$emit("update");
+                     this.$emit("update");
                      console.log(this);
                  })
             },
-        populateModal(index) {
-            let todoObject = todos.find(o => o.id === index);
+        populateModal() {
+            
             let modalText = this.updateCreator();
-            modalText.title.value = todoObject.title;
-            modalText.status.value = todoObject.status;
-            modalText.desc.value = todoObject.status;
+            modalText.title.value = this.title
+            modalText.status.value = this.status;
+            modalText.desc.value = this.desc;
         },
-        showModal(event) {
-            let id = event.target.id;
-            window.$('.ui.modal.update').modal({onShow: () => this.populateModal(id), onApprove: () => {this.updateTodo(id)}}).modal('show');
+        showModal() {
+            let id = this.id;
+            window.$('.ui.modal.update').modal({onShow: () => this.populateModal(), onApprove: () => {this.updateTodo(id)}}).modal('show');
         }
     }
 

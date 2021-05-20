@@ -7,7 +7,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
-//eslint-disable-next-line
+
 ;(function ($, window, document, undefined) {
 
 'use strict';
@@ -173,7 +173,6 @@ $.fn.modal = function(parameters) {
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            //eslint-disable-next-line
             observer = new MutationObserver(function(mutations) {
               module.debug('DOM tree modified, refreshing');
               module.refresh();
@@ -284,7 +283,6 @@ $.fn.modal = function(parameters) {
             var
               $target   = $(event.target),
               isRtl = module.is.rtl();
-              //eslint-disable-next-line
             ;
             initialMouseDownInModal = ($target.closest(selector.modal).length > 0);
             if(initialMouseDownInModal) {
@@ -1053,7 +1051,6 @@ $.fn.modal = function(parameters) {
           passedArguments = passedArguments || queryArguments;
           context         = element         || context;
           if(typeof query == 'string' && object !== undefined) {
-            //eslint-disable-next-line
             query    = query.split(/[\. ]/);
             maxDepth = query.length - 1;
             $.each(query, function(depth, value) {
@@ -1208,5 +1205,5 @@ $.fn.modal.settings = {
   }
 };
 
-//eslint-disable-next-line
+
 })( jQuery, window, document );

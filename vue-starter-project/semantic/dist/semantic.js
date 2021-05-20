@@ -18,8 +18,6 @@
  *
  */
 
-/* eslint-disable */
-
 ;(function ($, window, document, undefined) {
 
 $.isFunction = $.isFunction || function(obj) {

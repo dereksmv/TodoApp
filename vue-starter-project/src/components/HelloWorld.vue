@@ -31,6 +31,8 @@
     <CardContainers
     :todos="todos"
     @update="this.$emit('update')"
+    :isLoaded = isLoaded
+    :isLoading = isLoading
     />
   </div>
 </div>
@@ -50,7 +52,9 @@ export default {
     todos: Array,
     notStartedClasses: String,
     inProgressClasses: String,
-    completeClasses: String
+    completeClasses: String,
+    isLoaded: Boolean,
+    isLoading: Boolean
   },
   methods: {
     handleUpdate() {

@@ -6,6 +6,8 @@
         notStartedClasses="item"
         inProgressClasses="item active"
         completeClasses="item"
+        :isLoaded= isLoaded
+        :isLoading= isLoading
     />
 
 </div>
@@ -23,6 +25,8 @@ export default {
     data() {
             return {
                 todos: null,
+                isLoaded: false,
+                isLoading: true
             }
         },
     methods: {
@@ -30,6 +34,8 @@ export default {
             axios.get("/api/get-todo/in progress")
                  .then(response => {
                      this.todos = response.data;
+                     this.isLoaded = true;
+                     this.isLoading = false;
                  })
         }
     },
@@ -38,7 +44,8 @@ export default {
             axios.get("/api/get-todo/in progress")
                  .then(response => {
                      this.todos = response.data;
-                     console.log(this.todos)
+                     this.isLoaded = true;
+                     this.isLoading = false;
                  })
         }
     }

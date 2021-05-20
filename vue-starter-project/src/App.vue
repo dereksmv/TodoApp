@@ -11,19 +11,25 @@
         confirmText="Save"
         cancelText="Cancel"
         />
+        <UpdateModal
+        confirmText="Save"
+        cancelText="Cancel"
+        />
   </div>
   
 </template>
 
 <script>
 import ConfirmDeleteModal from './components/modals/ConfirmDeleteModal';
-import CreateToDoModal from './components/modals/CreateToDoModal'
+import CreateToDoModal from './components/modals/CreateToDoModal';
+import UpdateModal from "./components/modals/UpdateModal";
 
 export default {
   name: 'App',
   components: {
     ConfirmDeleteModal,
-    CreateToDoModal
+    CreateToDoModal,
+    UpdateModal
   }
 }
 </script>

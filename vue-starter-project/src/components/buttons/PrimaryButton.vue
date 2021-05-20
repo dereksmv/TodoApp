@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="button-primary">
-    <button v-on:click="showModal" class="ui primary button">{{ text }}</button>
+    <button v-on:click="showModal" class="ui blue button">{{ text }}</button>
   </div>
 
 </div>

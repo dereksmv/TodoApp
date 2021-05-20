@@ -46,14 +46,21 @@
                 </div>
                 <div class="extra-grid extra content">
                     <div>
+                        <EditButton
+                        :title = title
+                        :id = id
+                        :desc = description
+                        :status= status
+                        @update="handleUpdate"
+                        />
+                    </div>
+                    <div>
                         <DeleteTodoButton
                         :indexNumber="id"
                         @update="handleUpdate"
                         />
                     </div>
-                    <div>
-                        <button class="ui button">Edit</button>
-                    </div>
+
                 </div>
             </div>
     </div>
@@ -61,12 +68,14 @@
 </template>
 
 <script>
-import DeleteTodoButton from "../buttons/DeleteTodoButton"
+import DeleteTodoButton from "../buttons/DeleteTodoButton";
+import EditButton from "../buttons/EditButton";
+
 
 export default {
     name: "TodoCards",
     components: {
-        DeleteTodoButton
+        DeleteTodoButton, EditButton
     },
     props: {
         id: Number,
@@ -92,6 +101,7 @@ export default {
 
     .sizer {
         height: 450px;
+        box-shadow: 0 20px 50px rgba(240, 46, 170, 0.7);
     }
 
     .extra-grid {
@@ -99,4 +109,10 @@ export default {
         grid-template-columns: auto auto;
         padding: 10px;
     }
+</style>
+
+<style scoped>
+.styledHeader {
+    background-color: navy;
+}
 </style>
